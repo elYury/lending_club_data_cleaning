@@ -90,6 +90,15 @@ FROM `causal-axle-394212.lending_club_data_set.state_addresses`
 LIMIT 1000
 -- ___________________________________________________________________________________________________
 
+-- Looking at the Top 10 employment titles
+SELECT 
+    COUNT(id), employment_title
+    FROM `causal-axle-394212.lending_club_data_set.accepted_loans_filteredV2`
+    WHERE employment_title IS NOT NULL
+    GROUP BY employment_title
+    ORDER BY COUNT(id) DESC
+    LIMIT 10
+    
 -- EXPLORATION of DISCRETE columns
 SELECT
   term,
